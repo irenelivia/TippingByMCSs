@@ -1,0 +1,95 @@
+&PARAMETERS
+
+caseid			 = '480x480_1km_10s_DIU_sep'
+caseid_restart		 = '' !'64x64x100_1km_10s_DIU_test1'
+case_restart		 = '' !'RCE_irene'
+
+nrestart 		 = 1, 
+
+dt 			 = 10.,
+dx			 = 1000.
+dy			 = 1000.
+
+day0			 = 182.0, 		 ! July 1= 182, September 1 = 244,  Equinox = 80 (12 hr sun)
+latitude0 		 = 10
+
+nstop   		 = 371520                !241920=28d, 120960=14d, 8640=1d, 17280=2d, 25920=3d	(iterations) 
+nprint  		 = 20			 ! how often you print during execution (in timesteps)
+nstat   		 = 60 	!every 10mins	 ! n of time steps used for averaging stats
+nstatfrq		 = 1 			 ! n of samples collected over the nstat steps
+nrestart_skip		 = 35			 ! restart file written by default like nstat. if nrestart_skip =11, restart file written every 12th time that stat is written
+dogrestart		 = .false.		 ! general restart file may be wanted for changing domain and resolution 
+nstepgrestart	         = -1
+
+
+restart_sep		 = .false.,
+output_sep		 = .false.
+
+dofplane		 = .false.
+docoriolis		 = .false.,
+
+LES_S			 = .false.
+
+doseasons		 = .false.,
+nrad 			 = 30, 			 ! how often radiative transfer is computed (in timesteps - 3-5 minutes good for deep convection)
+
+OCEAN			 = .true.,
+ocean_type 		 = 4 			 ! 0 for constant SST, 4 for diurnally oscillating at time=timesimpleland and constant at time=timesimpleocean
+tabs_s                   = 305.			 ! SST
+timesimpleland		 = 0.			 ! when to transition to diurnally oscillating SST, in seconds
+!timesimpleocean 	 = 43200.		 ! when to transition to constant SST, in seconds
+delta_sst 	 	 = 10.			 ! max_sst = tabs_s + delta_sst
+restart_resetsst	 = .true.,
+
+dodynamicocean		 = .true.,		 ! set to true for diurnal oscillations or slab ocean!
+!depth_slab_ocean	 = 0.25,
+!Szero 			 = -110.0,
+
+dorescale_lhf            = .true.,
+rescaling_coeff          = 0.7
+
+
+nxco2			 = 1.,
+dosgs          		 = .true.,
+dodamping       	 = .true.,
+doupperbound    	 = .false.,
+docloud         	 = .true.,
+doprecip       		 = .true.,
+dolongwave        	 = .true.,
+doshortwave     	 = .true.,
+dosurface       	 = .true.,
+dolargescale   		 = .false.,
+doradforcing    	 = .false.,
+dosfcforcing   		 = .false.,
+donudging_uv           	 = .false.,
+donudging_tq    	 = .false.,
+doperpetual 		 = .true.,		 ! RCE constant insolation set to day0, lat0
+
+tauls			 = 86400.,
+
+SFC_FLX_FXD    		 = .false.,
+SFC_TAU_FXD    		 = .false.,
+
+doisccp 		 = .false.,
+
+doSAMconditionals 	 = .false.
+dosatupdnconditionals    = .false.
+
+nsave2D 		 = 60,			  ! how often to save 2D (in time steps)
+nsave2Dstart    	 = 0,
+nsave2Dend      	 = 999999999,
+save2Dsep		 = .true.
+save2Davg 		 = .false.
+
+nsave3D 		 = 360,			  ! how often to save 3D 
+nsave3Dstart    	 = 0,
+nsave3Dend      	 = 999999999,
+save3Dbin      		 = .false.
+
+nmovie       		 = 60,
+nmoviestart  		 = 999999998,
+nmovieend    		 = 999999999
+
+/
+
+
